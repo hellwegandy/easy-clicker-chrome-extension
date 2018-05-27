@@ -32,15 +32,16 @@ chrome.runtime.onMessage.addListener(
     }
 );
 
+let dd = document.getElementById("myDropdown");
 let ddOpen = false;
+let ddItemSelected = null;
 function dropdownClick(){
-    let dd = document.getElementById("myDropdown");
-    let ddOpen = dd.classList.contains('dropdown-show');
     dd.classList.toggle('dropdown-show');
-//    for ( let e of ddList ){
-//        console.log(e);
-//        e.classList
-//    }
+    ddOpen = dd.classList.contains('dropdown-show');
+}
+
+function dropdownItemClick(){
+
 }
 
 // set on click dropdown
