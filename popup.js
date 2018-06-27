@@ -2,20 +2,13 @@
 
 // Function ran on query submit button click
 function submitQuery(){
-    let query_text = getQueryText();
-    sendQueryMessage(query_text);
-}
-
-// gets the query text from the queryText input
-function getQueryText(){
-    return document.getElementById('queryText').value;
-}
-
-// finds the active tab and runs the query against that tab
-function sendQueryMessage(query){
     chrome.tabs.query({active: true, currentWindow: true}, (tabs)=>{
         let activeTab = tabs[0];
-        chrome.tabs.sendMessage(activeTab.id, {"message": "query_submit", "query": query});
+        chrome.tabs.sendMessage(activeTab.id, {
+            "message": "query_submit",
+            "query": document.getElementById('queryText').value,
+            "selector": myDropdownButton.innerHTML
+        });
     });
 }
 
@@ -41,6 +34,8 @@ function dropdownItemClick(selection){
     toggleDropdownOpen();
 }
 
+// ++++++++++++++++++++++++++++++++ Assign Button Clicks ++++++++++++++++++++++++++++++++
+
 // set query submit button onclick
 let myFunctionButton = document.getElementById("myFunctionButton");
 myFunctionButton.onclick = submitQuery;
@@ -52,8 +47,9 @@ myDropdownButton.onclick = toggleDropdownOpen;
 // set dropdown item onlclick
 let myDropdownItems = document.getElementsByClassName("dropdown-item");
 for(let item of myDropdownItems){
-    console.log(item);
     item.onclick = function(){
         dropdownItemClick(item);
     }
 }
+
+// ++++++++++++++++++++++++++++++++ ++++++++++++++++++++++++++++++++ ++++++++++++++++++++++++++++++++

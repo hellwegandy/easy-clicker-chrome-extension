@@ -6,18 +6,18 @@
   </head>
   <body>
     <h1>Easy Clicker</h1>
-    <div class="dropdown">
-      <div>
-        <span>Selector: </span><button id="dropdownButton" class="dropbtn">id</button>
+    <div class="dropdown full-width">
+      <div class='full-width flex'>
+        <span>Selector: </span><button id="dropdownButton" class="dropbtn">tag</button>
       </div>
       <div id="myDropdown" class="dropdown-content">
         <a href="#" id="idSelector" class="dropdown-item">id</a>
         <a href="#" id="classSelector" class="dropdown-item">class</a>
-        <a href="#" id="typeSelector" class="dropdown-item">type</a>
+        <a href="#" id="tagSelector" class="dropdown-item">tag</a>
       </div>
     </div>
-    <div class='full-width' id="queryTextWrapper">
-      <span>Query: </span><input id="queryText" type="text">
+    <div class='full-width flex' id="queryTextWrapper">
+      <span>Query: </span><input id="queryText" type="text" value="button">
     </div>
     <br>
     <div class="full-width relative" id="submitWrapper"><button id="myFunctionButton">Submit</button></div>

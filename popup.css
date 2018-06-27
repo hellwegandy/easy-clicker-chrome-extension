@@ -14,6 +14,10 @@ span, p, div, button {
     position: relative;
 }
 
+.flex {
+    display: flex;
+}
+
 #submitWrapper {
     margin-top: 20px;
 }
@@ -24,14 +28,14 @@ span, p, div, button {
     right: 4px;
 }
 
-#queryTextWrapper {
-    display: flex;
-}
-
-#queryTextWrapper input {
+#queryText {
     flex: 2;
     margin-left: 4px;
     overflow: hidden;
+}
+
+#dropdownButton {
+    flex: 2;
 }
 
 /* ====== Dropdown CSS ====== */
