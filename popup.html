@@ -7,15 +7,20 @@
   <body>
     <h1>Easy Clicker</h1>
     <div class="dropdown">
-      <button id="dropdownButton" class="dropbtn">Dropdown</button>
+      <div>
+        <span>Selector: </span><button id="dropdownButton" class="dropbtn">id</button>
+      </div>
       <div id="myDropdown" class="dropdown-content">
-        <a href="#" id="idSelector" >id</a>
-        <a href="#" id="classSelector" >class</a>
-        <a href="#" id="typeSelector" >type</a>
+        <a href="#" id="idSelector" class="dropdown-item">id</a>
+        <a href="#" id="classSelector" class="dropdown-item">class</a>
+        <a href="#" id="typeSelector" class="dropdown-item">type</a>
       </div>
     </div>
-    <input id="queryText" type="text">
-    <button id="myFunctionButton">Submit</button>
+    <div class='full-width' id="queryTextWrapper">
+      <span>Query: </span><input id="queryText" type="text">
+    </div>
+    <br>
+    <div class="full-width relative" id="submitWrapper"><button id="myFunctionButton">Submit</button></div>
     <script src="popup.js"></script>
   </body>
 </html>

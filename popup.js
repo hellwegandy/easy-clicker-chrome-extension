@@ -19,10 +19,6 @@ function sendQueryMessage(query){
     });
 }
 
-// set on click of query submit button
-let myFunctionButton = document.getElementById("myFunctionButton");
-myFunctionButton.onclick = submitQuery;
-
 // event listener to tell us how many items were clicked
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
@@ -34,16 +30,30 @@ chrome.runtime.onMessage.addListener(
 
 let dd = document.getElementById("myDropdown");
 let ddOpen = false;
-let ddItemSelected = null;
-function dropdownClick(){
+function toggleDropdownOpen(){
+    console.log('toggled the drop down');
     dd.classList.toggle('dropdown-show');
     ddOpen = dd.classList.contains('dropdown-show');
 }
 
-function dropdownItemClick(){
-
+function dropdownItemClick(selection){
+    myDropdownButton.innerHTML = selection.innerHTML;
+    toggleDropdownOpen();
 }
 
-// set on click dropdown
+// set query submit button onclick
+let myFunctionButton = document.getElementById("myFunctionButton");
+myFunctionButton.onclick = submitQuery;
+
+// set dropdown onclick
 let myDropdownButton = document.getElementById("dropdownButton");
-myDropdownButton.onclick = dropdownClick;
+myDropdownButton.onclick = toggleDropdownOpen;
+
+// set dropdown item onlclick
+let myDropdownItems = document.getElementsByClassName("dropdown-item");
+for(let item of myDropdownItems){
+    console.log(item);
+    item.onclick = function(){
+        dropdownItemClick(item);
+    }
+}
