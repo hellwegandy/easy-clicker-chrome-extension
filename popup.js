@@ -25,15 +25,6 @@ function dropdownItemClick(selection){
     toggleDropdownOpen();
 }
 
-// event listener to tell us how many items were clicked
-chrome.runtime.onMessage.addListener(
-    function(request, sender, sendResponse) {
-        if( request.message === "query_finished" ) {
-            console.log(request);
-        }
-    }
-);
-
 // ++++++++++++++++++++++++++++++++ Assign Button Clicks ++++++++++++++++++++++++++++++++
 
 // set query submit button onclick
@@ -53,3 +44,13 @@ for(let item of myDropdownItems){
 }
 
 // ++++++++++++++++++++++++++++++++ ++++++++++++++++++++++++++++++++ ++++++++++++++++++++++++++++++++
+
+
+// event listener to tell us how many items were clicked
+chrome.runtime.onMessage.addListener(
+    function(request, sender, sendResponse) {
+        if( request.message === "query_finished" ) {
+            console.log(request);
+        }
+    }
+);
