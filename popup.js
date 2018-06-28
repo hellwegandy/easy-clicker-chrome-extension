@@ -12,15 +12,6 @@ function submitQuery(){
     });
 }
 
-// event listener to tell us how many items were clicked
-chrome.runtime.onMessage.addListener(
-    function(request, sender, sendResponse) {
-        if( request.message === "query_finished" ) {
-            console.log(request);
-        }
-    }
-);
-
 let dd = document.getElementById("myDropdown");
 let ddOpen = false;
 function toggleDropdownOpen(){
@@ -33,6 +24,15 @@ function dropdownItemClick(selection){
     myDropdownButton.innerHTML = selection.innerHTML;
     toggleDropdownOpen();
 }
+
+// event listener to tell us how many items were clicked
+chrome.runtime.onMessage.addListener(
+    function(request, sender, sendResponse) {
+        if( request.message === "query_finished" ) {
+            console.log(request);
+        }
+    }
+);
 
 // ++++++++++++++++++++++++++++++++ Assign Button Clicks ++++++++++++++++++++++++++++++++
 
